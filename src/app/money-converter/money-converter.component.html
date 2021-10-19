@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="container">
+    <div class="logo-container">
+      <img src="https://seeklogo.com/images/P/privat-bank-logo-D7A76CC5EA-seeklogo.com.png" width="230px" height="200px">
+    </div>
+    <div class="enter-value-container">
+      <div class="enter-value">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <input matInput placeholder="Enter value" value="120" type="number" [(ngModel)]="inputValue">
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Currency</mat-label>
+          <mat-select [(value)] = "selectedOption">
+            <mat-option *ngFor="let el of currency" [value]="el.ccy">
+              {{el.ccy}} to {{el.base_ccy}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="transactions()">Primary</button>
+      </div>
+      <div class="change-currency"></div>
+      <div class="result">
+        <textarea matInput
+                  cdkTextareaAutosize
+                  #autosize="cdkTextareaAutosize"
+                  cdkAutosizeMinRows="1"
+                  cdkAutosizeMaxRows="5">{{resultTransaction}}</textarea>
+      </div>
+    </div>
+  </div>
+</div>
